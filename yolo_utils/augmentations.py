@@ -7,8 +7,8 @@ import cv2
 import math
 import numpy as np
 
-from utils.general import colorstr, segment2box, resample_segments, check_version
-from utils.metrics import bbox_ioa
+from yolo_utils.general import colorstr, segment2box, resample_segments, check_version
+from yolo_utils.metrics import bbox_ioa
 
 
 class Albumentations:

@@ -6,10 +6,10 @@ from threading import Thread
 import torch
 from torch.utils.tensorboard import SummaryWriter
 
-from utils.general import colorstr, emojis
-from utils.loggers.wandb.wandb_utils import WandbLogger
-from utils.plots import plot_images, plot_results
-from utils.torch_utils import de_parallel
+from yolo_utils.general import colorstr, emojis
+from yolo_utils.loggers.wandb.wandb_utils import WandbLogger
+from yolo_utils.plots import plot_images, plot_results
+from yolo_utils.torch_utils import de_parallel
 
 LOGGERS = ('csv', 'tb', 'wandb')  # text-file, TensorBoard, Weights & Biases
 
