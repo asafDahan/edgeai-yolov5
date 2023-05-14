@@ -30,19 +30,19 @@ sys.path.append(FILE.parents[0].as_posix())  # add yolov5/ to path
 import val  # for end-of-epoch mAP
 from models.experimental import attempt_load
 from models.yolo import Model
-from utils.autoanchor import check_anchors
-from utils.datasets import create_dataloader
-from utils.general import labels_to_class_weights, increment_path, labels_to_image_weights, init_seeds, \
+from yolo_utils.autoanchor import check_anchors
+from yolo_utils.datasets import create_dataloader
+from yolo_utils.general import labels_to_class_weights, increment_path, labels_to_image_weights, init_seeds, \
     strip_optimizer, get_latest_run, check_dataset, check_file, check_git_status, check_img_size, \
     check_requirements, print_mutation, set_logging, one_cycle, colorstr
-from utils.google_utils import attempt_download
-from utils.loss import ComputeLoss
-from utils.plots import plot_labels, plot_evolution
-from utils.torch_utils import ModelEMA, select_device, intersect_dicts, torch_distributed_zero_first, de_parallel
-from utils.loggers.wandb.wandb_utils import check_wandb_resume
-from utils.metrics import fitness
-from utils.loggers import Loggers
-from utils.misc import make_symlink
+from yolo_utils.google_utils import attempt_download
+from yolo_utils.loss import ComputeLoss
+from yolo_utils.plots import plot_labels, plot_evolution
+from yolo_utils.torch_utils import ModelEMA, select_device, intersect_dicts, torch_distributed_zero_first, de_parallel
+from yolo_utils.loggers.wandb.wandb_utils import check_wandb_resume
+from yolo_utils.metrics import fitness
+from yolo_utils.loggers import Loggers
+from yolo_utils.misc import make_symlink
 
 LOGGER = logging.getLogger(__name__)
 LOCAL_RANK = int(os.getenv('LOCAL_RANK', -1))  # https://pytorch.org/docs/stable/elastic/run.html

@@ -32,7 +32,7 @@ import numpy as np
 
 import onnx
 import torch
-#from xmmdet.utils import save_model_proto
+#from xmmdet.yolo_utils import save_model_proto
 
 
 __all__ = ['pytorch2proto']

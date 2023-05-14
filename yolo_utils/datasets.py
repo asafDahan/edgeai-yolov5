@@ -1,4 +1,4 @@
-# YOLOv5 dataset utils and dataloaders
+# YOLOv5 dataset yolo_utils and dataloaders
 
 import glob
 import hashlib
@@ -107,7 +107,7 @@ def create_dataloader(path, imgsz, batch_size, stride, single_cls=False, hyp=Non
     nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, workers])  # number of workers
     sampler = torch.utils.data.distributed.DistributedSampler(dataset) if rank != -1 else None
     loader = torch.utils.data.DataLoader if image_weights else InfiniteDataLoader
-    # Use torch.utils.data.DataLoader() if dataset.properties will update during training else InfiniteDataLoader()
+    # Use torch.yolo_utils.data.DataLoader() if dataset.properties will update during training else InfiniteDataLoader()
     dataloader = loader(dataset,
                         batch_size=batch_size,
                         num_workers=nw,
@@ -782,7 +782,7 @@ def flatten_recursive(path='../datasets/coco128'):
         shutil.copyfile(file, new_path / Path(file).name)
 
 
-def extract_boxes(path='../datasets/coco128'):  # from utils.datasets import *; extract_boxes()
+def extract_boxes(path='../datasets/coco128'):  # from yolo_utils.datasets import *; extract_boxes()
     # Convert detection dataset into classification dataset, with one directory per class
     path = Path(path)  # images dir
     shutil.rmtree(path / 'classifier') if (path / 'classifier').is_dir() else None  # remove existing
@@ -818,7 +818,7 @@ def extract_boxes(path='../datasets/coco128'):  # from utils.datasets import *; 
 
 def autosplit(path='../datasets/coco128/images', weights=(0.9, 0.1, 0.0), annotated_only=False):
     """ Autosplit a dataset into train/val/test splits and save path/autosplit_*.txt files
-    Usage: from utils.datasets import *; autosplit()
+    Usage: from yolo_utils.datasets import *; autosplit()
     Arguments
         path:            Path to images directory
         weights:         Train, val, test weights (list, tuple)
@@ -887,8 +887,8 @@ def verify_image_label(args):
 
 def dataset_stats(path='coco128.yaml', autodownload=False, verbose=False):
     """ Return dataset statistics dictionary with images and instances counts per split per class
-    Usage1: from utils.datasets import *; dataset_stats('coco128.yaml', verbose=True)
-    Usage2: from utils.datasets import *; dataset_stats('../datasets/coco128.zip', verbose=True)
+    Usage1: from yolo_utils.datasets import *; dataset_stats('coco128.yaml', verbose=True)
+    Usage2: from yolo_utils.datasets import *; dataset_stats('../datasets/coco128.zip', verbose=True)
     
     Arguments
         path:           Path to data.yaml or data.zip (with data.yaml inside data.zip)

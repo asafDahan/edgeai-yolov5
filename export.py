@@ -20,12 +20,12 @@ from models.common import NMS, NMS_Export
 from models.common import Conv
 from models.yolo import Detect
 from models.experimental import attempt_load
-from utils.activations import Hardswish, SiLU
-from utils.general import colorstr, check_img_size, check_requirements, file_size, set_logging
-from utils.torch_utils import select_device
-from utils.proto.pytorch2proto import prepare_model_for_layer_outputs, retrieve_onnx_names
+from yolo_utils.activations import Hardswish, SiLU
+from yolo_utils.general import colorstr, check_img_size, check_requirements, file_size, set_logging
+from yolo_utils.torch_utils import select_device
+from yolo_utils.proto.pytorch2proto import prepare_model_for_layer_outputs, retrieve_onnx_names
 
-from utils.proto import tidl_meta_arch_yolov5_pb2
+from yolo_utils.proto import tidl_meta_arch_yolov5_pb2
 from google.protobuf import text_format
 
 

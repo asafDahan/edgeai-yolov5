@@ -1,4 +1,4 @@
-# YOLOv5 general utils
+# YOLOv5 general yolo_utils
 
 import contextlib
 import glob
@@ -608,7 +608,7 @@ def non_max_suppression_export(prediction, conf_thres=0.25, iou_thres=0.45, clas
     return output
 
 
-def strip_optimizer(f='best.pt', s=''):  # from utils.general import *; strip_optimizer()
+def strip_optimizer(f='best.pt', s=''):  # from yolo_utils.general import *; strip_optimizer()
     # Strip optimizer from 'f' to finalize training, optionally save as 's'
     x = torch.load(f, map_location=torch.device('cpu'))
     if x.get('ema'):

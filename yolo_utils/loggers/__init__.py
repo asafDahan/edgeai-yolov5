@@ -1,4 +1,4 @@
-# YOLOv5 experiment logging utils
+# YOLOv5 experiment logging yolo_utils
 
 import warnings
 from threading import Thread

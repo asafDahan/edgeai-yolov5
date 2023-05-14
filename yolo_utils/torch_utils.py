@@ -1,4 +1,4 @@
-# YOLOv5 PyTorch utils
+# YOLOv5 PyTorch yolo_utils
 
 import datetime
 import logging
